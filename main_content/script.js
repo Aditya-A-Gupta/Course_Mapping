@@ -116,20 +116,6 @@ function renderTable(filtered) {
   });
 }
 
-document.getElementById('resetBtn').addEventListener('click', () => {
-  // Reset filter input values to default
-  document.getElementById('course').value = '';
-  document.getElementById('department').selectedIndex = 0;
-  document.getElementById('university').selectedIndex = 0;
-  document.getElementById('country').selectedIndex = 0;
-  // Clear local storage for filters and results
-  localStorage.removeItem('filters');
-  localStorage.removeItem('filteredResults');
-  // Optionally rerender the table with all results
-  renderTable(mappings);
-});
-
-
 // Handle filtering & search
 if (document.getElementById("submitBtn")) {
   document.getElementById("submitBtn").addEventListener("click", () => {
@@ -206,6 +192,21 @@ if (window.location.pathname.includes("detail.html")) {
   }
 }
 
+document.getElementById('resetBtn').addEventListener('click', () => {
+  // Reset filter input values to default
+  document.getElementById('course').value = '';
+  document.getElementById('department').selectedIndex = 0;
+  document.getElementById('university').selectedIndex = 0;
+  document.getElementById('country').selectedIndex = 0;
+  // Clear local storage for filters and results
+  localStorage.removeItem('filters');
+  localStorage.removeItem('filteredResults');
+  // Optionally rerender the table with all results
+  renderTable(mappings);
+});
+
+
 document.getElementById("backBtn").addEventListener("click", () => {
   window.location.href = "../index.html"; // <-- change this to your actual main page filename (e.g. index.html)
 });
+
