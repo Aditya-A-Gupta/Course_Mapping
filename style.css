@@ -169,7 +169,7 @@ footer span {
 
   .header-left {
     order: 0; /* UGAC logo stays left */
-    margin-left: 0;
+    margin-left: -10px;
   }
 
   .header-right {
@@ -199,4 +199,5 @@ footer span {
     padding-bottom: 20px;
   }
 }
+
 
