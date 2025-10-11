@@ -193,4 +193,8 @@ tr:hover {
     font-size: 14px;
     margin-top: 15px;
   }
+
+  #detail-table td {
+    font-size: 12px !important;
+  }
 }
