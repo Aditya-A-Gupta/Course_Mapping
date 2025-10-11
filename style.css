@@ -161,15 +161,18 @@ footer span {
 
   /* Header adjustments */
   header {
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding-left: 5px;  /* UGAC logo closer to left */
+    padding-right: 10px; /* maintain right padding for DAV logo */
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   .header-left {
     order: 0; /* UGAC logo stays left */
-    margin-left: -30px;
   }
 
   .header-right {
@@ -199,6 +202,3 @@ footer span {
     padding-bottom: 20px;
   }
 }
-
-
-
