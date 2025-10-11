@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Course Mapping Portal</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Course Mapping Portal IIT Bombay Exchange</h1>
+
+  <div class="filter-section">
+    <div class="filter-row">
+      
+      <div class="filter-item">
+        <label for="course">Course Code</label>
+        <input type="text" id="course" placeholder="Enter IITB Course Code" />
+      </div>
+      <div class="filter-item">
+        <label for="department">Department</label>
+        <select id="department">
+          <option value="">Loading...</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="filter-row">
+      <div class="filter-item">
+        <label for="country">Country</label>
+        <select id="country">
+          <option value="">Loading...</option>
+        </select>
+      </div>
+      <div class="filter-item">
+        <label for="university">Foreign University</label>
+        <select id="university">
+          <option value="">Loading...</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="filter-button">
+      <button id="backBtn">Return to Main Page</button>
+      <button id="submitBtn">Submit</button>
+      <button id="resetBtn">Reset Filters</button>
+    </div>
+  </div>
+
+  <div id="results-section">
+    <table id="results-table">
+      <thead>
+        <tr>
+          <th>IITB Course Code</th>
+          <th>Department</th>
+          <th>Foreign University</th>
+          <th>Country</th>
+          <th>Foreign Course Code</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Results injected by JS -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
