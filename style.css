@@ -148,15 +148,18 @@ footer span {
 
 /* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
+  /* Banner adjustments */
   .banner-overlay h1 {
     font-size: 1.8rem;
   }
 
+  /* Info boxes stacked */
   .info-boxes {
     flex-direction: column;
     align-items: center;
   }
 
+  /* Header adjustments */
   header {
     flex-direction: row;
     justify-content: space-between;
@@ -170,23 +173,25 @@ footer span {
 
   .header-right {
     display: flex;
-    align-items: center;
+    flex: 1; /* take remaining space between logos */
+    justify-content: flex-end; /* push text toward DAV logo */
+    align-items: center; /* vertically center text with logos */
     gap: 8px;
-    order: 1; /* move next to UGAC logo */
+    order: 1;
   }
 
   .header-right h2 {
     font-size: 0.95rem;
+    margin: 0;
+    white-space: nowrap; /* keep in single line */
   }
 
-  .header-left img {
-    height: 40px;
-  }
-
+  .header-left img,
   .header-right img {
     height: 40px;
   }
 
+  /* Content section padding adjustments */
   .content-section {
     padding: 0 20px;
     padding-top: 20px;
