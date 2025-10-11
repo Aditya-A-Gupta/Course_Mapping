@@ -1,7 +1,7 @@
+// Store all course mapping entries
+let mappings = [];
 
-let mappings = []; // Store all course mapping entries
-
-// Update table headers to add Serial Number column dynamically
+// Dynamically update table headers to add Serial Number column
 function updateTableHeaders() {
   const thead = document.querySelector("#results-table thead");
   if (!thead) return;
@@ -17,7 +17,7 @@ function updateTableHeaders() {
   }
 }
 
-// Load JSON dataset and populate dropdowns, update headers, restore filters
+// Load JSON dataset, populate dropdowns, update headers, restore filters
 fetch("overall_mappings.json")
   .then(res => res.json())
   .then(data => {
@@ -28,6 +28,7 @@ fetch("overall_mappings.json")
   })
   .catch(err => console.error("Error loading JSON file:", err));
 
+// Populate all filter dropdowns
 function populateDropdowns() {
   populateUniversityDropdown();
   populateDepartmentDropdown();
@@ -88,7 +89,7 @@ function populateCountryDropdown() {
   });
 }
 
-// Render the main table with results including serial number column
+// Render the main table with results (Serial Number column included)
 function renderTable(filtered) {
   const tbody = document.querySelector("#results-table tbody");
   tbody.innerHTML = "";
@@ -116,7 +117,7 @@ function renderTable(filtered) {
   });
 }
 
-// Handle filtering & search
+// Submit button functionality—filter and search
 if (document.getElementById("submitBtn")) {
   document.getElementById("submitBtn").addEventListener("click", () => {
     const courseInput = document.getElementById("course").value.trim().toLowerCase().replace(/\s+/g, "");
@@ -134,6 +135,22 @@ if (document.getElementById("submitBtn")) {
     localStorage.setItem("filters", JSON.stringify({ courseInput, dept, uniInput, countryInput }));
     localStorage.setItem("filteredResults", JSON.stringify(filtered));
     renderTable(filtered);
+  });
+}
+
+// Reset Filters button functionality
+if (document.getElementById("resetBtn")) {
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    // Reset filter input values to default
+    document.getElementById('course').value = '';
+    document.getElementById('department').selectedIndex = 0;
+    document.getElementById('university').selectedIndex = 0;
+    document.getElementById('country').selectedIndex = 0;
+    // Clear local storage for filters and results
+    localStorage.removeItem('filters');
+    localStorage.removeItem('filteredResults');
+    // Rerender the table with all results
+    renderTable(mappings);
   });
 }
 
@@ -192,21 +209,9 @@ if (window.location.pathname.includes("detail.html")) {
   }
 }
 
-document.getElementById('resetBtn').addEventListener('click', () => {
-  // Reset filter input values to default
-  document.getElementById('course').value = '';
-  document.getElementById('department').selectedIndex = 0;
-  document.getElementById('university').selectedIndex = 0;
-  document.getElementById('country').selectedIndex = 0;
-  // Clear local storage for filters and results
-  localStorage.removeItem('filters');
-  localStorage.removeItem('filteredResults');
-  // Optionally rerender the table with all results
-  renderTable(mappings);
-});
-
-
-document.getElementById("backBtn").addEventListener("click", () => {
-  window.location.href = "../index.html"; // <-- change this to your actual main page filename (e.g. index.html)
-});
-
+// Return to Main Page button functionality
+if (document.getElementById("backBtn")) {
+  document.getElementById("backBtn").addEventListener("click", () => {
+    window.location.href = "index.html"; // Update to correct filename if necessary
+  });
+}
